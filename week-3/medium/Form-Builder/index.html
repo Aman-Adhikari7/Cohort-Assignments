@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Builder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-container">
+            <h1>Form Builder</h1>
+            <label>
+                <h4>Select Field Type</h4>
+                <select id="select">
+                    <option value="textinput">Text input</option>
+                    <option value="checkbox">Checkbox</option>
+                    <option value="radiobutton">Radio button</option>
+                </select>
+            </label>
+            <label>
+                <h4>Field Label</h4>
+                <input type="text" id="fieldLabel" placeholder="Enter Field Label">
+            </label>
+            <input type="button" onclick="addField()" value="Add Field">
+        </div>
+
+        <div class="right-container">
+            <h2>Form Preview</h2>
+            <div id="form-preview" class="form-preview"></div>
+        </div>
+    </div>
+
+
+
+<script>
+    // let arr=[]
+
+    function addField(){
+
+        const inputLabel = document.getElementById('fieldLabel').value;
+        const select = document.getElementById('select')
+        const contents = document.getElementById("form-preview");
+
+       
+
+
+        const label = document.createElement('label');
+        label.textContent = inputLabel;
+        label.setAttribute('id', "hehe")
+        
+        if(select.value === 'textinput'){
+            contents.appendChild(label)
+            
+    
+     }else if(select.value == 'checkbox'){
+        const checkbox= document.createElement("input")
+        checkbox.type="checkbox"
+        checkbox.setAttribute('id',"hehe")
+        contents.appendChild(label)
+        contents.appendChild(checkbox)
+     }else if(select.value == 'radiobutton'){
+        const radioButton = document.createElement("input");
+        radioButton.type = "radio";
+        contents.appendChild(label)
+        contents.appendChild(radioButton);
+     }
+     document.getElementById('fieldLabel').value = '';
+
+
+    }
+   
+
+
+
+
+</script>
+</body>
+</html>

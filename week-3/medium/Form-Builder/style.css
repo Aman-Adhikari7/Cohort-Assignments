@@ -1,0 +1,93 @@
+//* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic container layout */
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.left-container, .right-container {
+    width: 45%;
+}
+
+.left-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.right-container {
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+h4 {
+    margin-bottom: 8px;
+}
+
+input[type="text"], select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="button"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="button"]:hover {
+    background-color: #0056b3;
+}
+
+.form-preview {
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    min-height: 100px;
+}
+
+.form-preview label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.form-preview input {
+    margin-right: 10px;
+}
+
+#hehe label {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#hehe input [type="checkbox"], input[type="radio"] {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.form-preview label {
+    display: inline-flex;
+    align-items: center; 
+}
+
+
