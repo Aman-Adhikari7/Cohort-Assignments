@@ -152,13 +152,6 @@ router.post('/logout',usermiddleware,async(req,res)=>{
     res.status(501).json({ message: 'Server error, logout failed', error });
    }
     
-
-
-
-
-
-
-
 })
 
 

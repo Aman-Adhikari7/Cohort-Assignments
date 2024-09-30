@@ -1,6 +1,7 @@
 const { Router } = require ('express')
 const router = Router()
 const bcrypt = require('bcryptjs');
+const mongoose = require ('mongoose')
 const { Course, Admin, Purchase} = require('../db/Db');
 const jwt = require ('jsonwebtoken')
 const adminMiddleware = require ('../midleware/AdminMiddleware.js')
@@ -93,7 +94,7 @@ try {
 })
 
 router.post('/createcourse',adminMiddleware,async(req,res)=>{
-    const { title , description , price , imageurl , published } = req.body
+    const { title , description , price , imageurl } = req.body
 
     const adminId = req.user.userId
 
@@ -127,6 +128,51 @@ router.post('/createcourse',adminMiddleware,async(req,res)=>{
 //update course functionality
 
 
+router.put("/course", adminMiddleware, async function(req, res) {
+    const adminId = req.user.userId;
+
+    const { title, description, imageUrl, price, courseId } = req.body;
+
+    // creating a web3 saas in 6 hours
+    const course = await Course.updateOne({
+        _id: courseId, 
+        creatorId: adminId 
+    }, {
+        title: title, 
+        description: description, 
+        imageUrl: imageUrl, 
+        price: price
+    } ,{new : true})
+
+    res.json({
+        message: "Course updated",
+        courseId: course._id
+    })
+})
+
+
+// delete one fun 
+
+
+router.delete("/delete", adminMiddleware, async function(req, res) {
+    const adminId = req.user.userId;
+
+    const {  courseId } = req.body;
+
+    // creating a web3 saas in 6 hours
+    const course = await Course.deleteOne({
+        _id: courseId, 
+        creatorId: adminId 
+    })
+
+    res.json({
+        message: "Course deleted",
+        courseId: course._id
+    })
+})
+
+
+
 
 // getting admin created courses 
 
@@ -144,4 +190,37 @@ router.get('/mycourses',adminMiddleware,async(req,res)=>{
     })
 
 })
+
+//logout route admiini
+
+router.post('/logout',usermiddleware,async(req,res)=>{
+
+    const token = req.headers['authorization'].split(" ")[1]
+
+   try {
+
+     if(!token){
+         res.json({
+             error:"invalid token"
+         })
+     }
+     const logout = await Expire.create({
+         token:token,
+         createdAt:Date.now()
+     })
+
+     if(!logout){
+        res.status(400).json({
+            error: " cannot logout"
+        })
+     }
+     await logout.save()
+
+     res.status(200).json(logout)
+   } catch (error) {
+    res.status(501).json({ message: 'Server error, logout failed', error });
+   }
+})
+
+
 module.exports = router;
