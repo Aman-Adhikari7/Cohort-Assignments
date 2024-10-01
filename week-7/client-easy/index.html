@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web & Web3 Course</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Login Page Container -->
+    <div class="container">
+        <!-- Login Section -->
+        <div class="first-page" id="login-page" style="display: block;">
+            <form action="submit" id="login-form">
+                <h3>Welcome, Log in to continue</h3>
+                <input type="text" id="login-username" placeholder="Username" class="input-field">
+                <input type="password" id="login-password" placeholder="Password" class="input-field">
+                <button id="user-login" class="login-button">Log in as User</button>
+                <button id="admin-login" class="login-button">Log in as Admin</button>
+                <a id="signup-1" href="#">Not a member? Sign up</a>
+            </form>
+        </div>
+
+        <!-- Sign-Up Section -->
+        <div class="sign-up" id="signup-page" style="display: none;">
+            <form action="submit" id="signup-form">
+                <h3>Welcome, Sign up to continue</h3>
+                <input type="text" id="signup-username" placeholder="Username" class="input-field">
+                <input type="password" id="signup-password" placeholder="Password" class="input-field">
+                <button id="signup-user" class="login-button">Sign up as User</button>
+                <button id="signup-admin" class="login-button">Sign up as Admin</button>
+                <button id="previous-page" class="submit-button">Previous</button>
+            </form>
+        </div>
+        
+        <!-- Main Website Content User -->
+        <div id="real-content-User" class="main-web" style="display:none;">
+            <header>
+                <nav>
+                    <ul>
+                        <li>74xDevs</li>
+                        <li>Home</li>
+                        <li>My Courses</li>
+                        <li><button id="logout">Logout</button></li>
+                    </ul>
+                </nav>
+                <div class="intro">
+                    <h4>Book Your Slots Now</h4>
+                    <h2>Start Your Web and Web3 Journey With Us</h2>
+                    <h3><p>Join our course and gain firsthand knowledge about Web and Web3 development.</p></h3>
+                    <button id="round-button">View Courses</button>
+                </div>
+            </header>
+
+            <main>
+                <div class="center-page">
+                    <img src="https://tse1.mm.bing.net/th?id=OIP.xi_VY54V535hztHz11VTyQHaFL&pid=Api&P=0&h=180" alt="Web3 Course">
+                    <img src="https://tse4.mm.bing.net/th?id=OIP.YPDgU8zumbobqKqZGI5w4gHaDt&pid=Api&P=0&h=180" alt="Web Course">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2023/2/TT/BC/ZJ/74103760/web-designing-course-1000x1000.png" alt="Web Design Course" style="width: 200px;">
+                </div>
+                <h3>What you'll learn with us</h3>
+            </main>
+
+            <!-- Card Section -->
+            <div class="cards-section">
+                <div class="card">
+                    <img src="https://via.placeholder.com/300" alt="Course Image">
+                    <h2>Web3 Mastery</h2>
+                    <h5>Learn the essentials of Web3 development and blockchain integration.</h5>
+                    <h3>$299</h3>
+                    <button>Buy Now</button>
+                </div>
+
+                <div class="card">
+                    <img src="https://via.placeholder.com/300" alt="Course Image">
+                    <h2>Full-Stack Web</h2>
+                    <h5>Master front-end and back-end development to become a full-stack developer.</h5>
+                    <h3>$199</h3>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Website Content Admin -->
+        <div id="real-content-Admin" class="main-web" style="display:none;">
+            <header>
+                <nav>
+                    <ul>
+                        <li>74xDevs</li>
+                        <li>Home</li>
+                        <li><button id="logout">Logout</button></li>
+                    </ul>
+                </nav>
+                <div class="intro">
+                    <button id="round-button">Create Courses</button>
+                    <button id="round-button">My Courses</button>
+                </div>
+            </header>
+
+            <main>
+                <div class="center-page">
+                    <img src="https://tse1.mm.bing.net/th?id=OIP.xi_VY54V535hztHz11VTyQHaFL&pid=Api&P=0&h=180" alt="Web3 Course">
+                    <img src="https://tse4.mm.bing.net/th?id=OIP.YPDgU8zumbobqKqZGI5w4gHaDt&pid=Api&P=0&h=180" alt="Web Course">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2023/2/TT/BC/ZJ/74103760/web-designing-course-1000x1000.png" alt="Web Design Course" style="width: 200px;">
+                </div>
+                <h3>Courses previews ...</h3>
+            </main>
+
+            <!-- Card Section -->
+            <div class="cards-section">
+                <div class="card">
+                    <img src="https://via.placeholder.com/300" alt="Course Image">
+                    <h2>Web3 Mastery</h2>
+                    <h5>Learn the essentials of Web3 development and blockchain integration.</h5>
+                    <h3>$299</h3>
+                    <button>Buy Now</button>
+                </div>
+
+                <div class="card">
+                    <img src="https://via.placeholder.com/300" alt="Course Image">
+                    <h2>Full-Stack Web</h2>
+                    <h5>Master front-end and back-end development to become a full-stack developer.</h5>
+                    <h3>$199</h3>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link to JavaScript -->
+    <script src="./script.js"></script>
+</body>
+</html>
