@@ -1,7 +1,7 @@
 const express = require ('express')
 const dotenv= require ('dotenv')
 dotenv.config()
-
+const cors = require('cors')
 const app = express()
 
 
@@ -9,6 +9,7 @@ app.get('/healthy',(req,res)=>{
     res.send("i am healthy")
 })
 app.use(express.json())
+app.use(cors())
 
 //user 
 

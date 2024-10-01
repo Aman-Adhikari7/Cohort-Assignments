@@ -193,7 +193,7 @@ router.get('/mycourses',adminMiddleware,async(req,res)=>{
 
 //logout route admiini
 
-router.post('/logout',usermiddleware,async(req,res)=>{
+router.post('/logout',adminMiddleware,async(req,res)=>{
 
     const token = req.headers['authorization'].split(" ")[1]
 
