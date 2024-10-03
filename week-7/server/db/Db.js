@@ -64,8 +64,8 @@ const purchaseSchema = new mongoose.Schema({
 const tokenExp = new mongoose.Schema({
     token:{
         type:String,
-        required:true,
-        unique:true
+        required:true
+        
     },
     createdAt:{
         type:Date,

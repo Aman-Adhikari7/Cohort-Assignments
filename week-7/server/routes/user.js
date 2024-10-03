@@ -109,6 +109,7 @@ router.get('/purchasedcourse',usermiddleware,async(req,res)=>{
      const coursedata = await Course.find({
          _id: {$in : purchasedcourse}
      })
+     console.log(found)
  
      res.json({
          found:found,

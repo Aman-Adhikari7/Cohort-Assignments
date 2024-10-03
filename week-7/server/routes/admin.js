@@ -2,7 +2,7 @@ const { Router } = require ('express')
 const router = Router()
 const bcrypt = require('bcryptjs');
 const mongoose = require ('mongoose')
-const { Course, Admin, Purchase} = require('../db/Db');
+const { Course, Admin, Purchase,Expire} = require('../db/Db');
 const jwt = require ('jsonwebtoken')
 const adminMiddleware = require ('../midleware/AdminMiddleware.js')
 const dotenv = require ('dotenv')
@@ -94,7 +94,7 @@ try {
 })
 
 router.post('/createcourse',adminMiddleware,async(req,res)=>{
-    const { title , description , price , imageurl } = req.body
+    const { title , description , price , imageUrl } = req.body
 
     const adminId = req.user.userId
 
@@ -103,7 +103,7 @@ router.post('/createcourse',adminMiddleware,async(req,res)=>{
          title:title,
          description:description,
          price:price,
-         imageurl:imageurl,
+         imageUrl:imageUrl,
          creatorId: adminId
      })
  
@@ -176,26 +176,45 @@ router.delete("/delete", adminMiddleware, async function(req, res) {
 
 // getting admin created courses 
 
+
+
 router.get('/mycourses',adminMiddleware,async(req,res)=>{
-    
-    const adminId= req.user.userId
+        
+    const userId = req.user.userId
 
-    const course = await Purchase.find({
-        adminId:adminId
-    })
-
-    res.json({
-        message:"couse created by admin",
-        course:course
-    })
-
+   try {
+     const found = await Course.find({
+        creatorId: userId
+     })
+      
+     let purchasedcourse =[]
+ 
+     for(let i=0; i<found.length;i++){
+         purchasedcourse.push(found[i].courseId)
+     }
+ 
+     const coursedata = await Course.find({
+         _id: {$in : purchasedcourse}
+     })
+     
+     console.log(found)
+ 
+     res.json({
+         found:found,
+         coursedata:coursedata
+     })
+   } catch (error) {
+      console.log(error)
+   }
 })
 
 //logout route admiini
 
-router.post('/logout',adminMiddleware,async(req,res)=>{
+router.post('/logout/ok',adminMiddleware,async(req,res)=>{
+    console.log('Incoming request body:', req.body)
 
     const token = req.headers['authorization'].split(" ")[1]
+    console.log(token,"backend tok")
 
    try {
 
@@ -208,6 +227,8 @@ router.post('/logout',adminMiddleware,async(req,res)=>{
          token:token,
          createdAt:Date.now()
      })
+
+     console.log(logout)
 
      if(!logout){
         res.status(400).json({

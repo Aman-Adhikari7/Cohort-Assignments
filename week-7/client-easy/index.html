@@ -40,15 +40,25 @@
                     <ul>
                         <li>74xDevs</li>
                         <li>Home</li>
-                        <li>My Courses</li>
-                        <li><button id="logout">Logout</button></li>
+                        <li><button id="user-course">My Courses</button></li>
+                        <li><button id="user-logout">Logout</button></li>
                     </ul>
                 </nav>
-                <div class="intro">
+                <div class="intro" id="display-purchases">
+
+
                     <h4>Book Your Slots Now</h4>
                     <h2>Start Your Web and Web3 Journey With Us</h2>
                     <h3><p>Join our course and gain firsthand knowledge about Web and Web3 development.</p></h3>
-                    <button id="round-button">View Courses</button>
+                    <button  id="preview-course" class="round-button">View Courses</button>
+                    <button  id="buy-course" class="round-button">buy Courses</button>
+
+                    <!-- //purchase section  -->
+                <div id="purchase"  class="first-page" style="display: none;">
+                    <input type="text" id="buy-id" placeholder="input id of course" class="input-field">
+                     <button id="buy-now">buy now course</button>
+                </div>
+
                 </div>
             </header>
 
@@ -62,7 +72,7 @@
             </main>
 
             <!-- Card Section -->
-            <div class="cards-section">
+            <div   class="cards-section">
                 <div class="card">
                     <img src="https://via.placeholder.com/300" alt="Course Image">
                     <h2>Web3 Mastery</h2>
@@ -81,6 +91,34 @@
             </div>
         </div>
 
+        <!-- // all course preview   -->
+
+        <div class="first-page" id="all-course-view" style="display:none;">
+            <button id="previous-page-2" class="submit-button">Previous</button>
+            <div id="all-cards-user">
+
+            </div>
+
+        </div>
+
+
+        <!-- //my courss  -->
+        <div class="first-page" id="my-course" style="display:none;">
+        <div id="my-course-user">
+            <div id="my-cards-user">
+
+
+            </div>
+        </div>
+        </div>
+
+
+
+
+
+
+
+
         <!-- Main Website Content Admin -->
         <div id="real-content-Admin" class="main-web" style="display:none;">
             <header>
@@ -88,13 +126,59 @@
                     <ul>
                         <li>74xDevs</li>
                         <li>Home</li>
-                        <li><button id="logout">Logout</button></li>
+                        <li><button id="admin-logout">Logout</button></li>
                     </ul>
                 </nav>
                 <div class="intro">
-                    <button id="round-button">Create Courses</button>
-                    <button id="round-button">My Courses</button>
+                    <button  id="create-course"   class="round-button">Create Courses</button>
+
+                    <!-- //create course  -->
+                    <div class="first-page"  id="course-view" style="display: none;">
+                        <input type="text" id="title" placeholder="Title" class="input-field">
+                        <input type="text" id="description" placeholder="description" class="input-field">
+                        <input type="number" id="price" placeholder="price" class="input-field">
+                        <input type="text" id="Image-ok" placeholder="Image-Url" class="input-field">
+                        <button  id="create-now">Create now</button>
+                        <button id="previous-page-3" class="submit-button">Previous</button>
+                    </div>
+                    
+                    <button  id="my-courses"  class="round-button">My Courses</button>
+                    <div id="all-cards-admin-hehe" class="first-page">
+                    
+                    </div>
+                
                 </div>
+
+                <!-- //mu-course-admin-2 -->
+                 <!-- <div id="created-course-mine" style="display:none;"></div>
+                <div  class="first-page" id="my-course-admin-2">
+                </div> -->
+
+
+                <button id="course-delete" class="round-button"> Delete course  </button>
+                <div id="delete-course"  class="first-page" style="display: none;">
+                    <input type="text" id="Course-id" placeholder="input id of course" class="input-field">
+                     <button id="delete-now">Delete-course</button>
+                </div>
+
+
+
+                <button id="update" class="round-button"> update course  </button>
+                <div id="update-course"  class="first-page" style="display: none;">
+                    <input type="text" id="update-id" placeholder="input id of course" class="input-field">
+                    <input type="text" id="update-title" placeholder="Title" class="input-field">
+                    <input type="text" id="update-description" placeholder="description" class="input-field">
+                    <input type="number" id="update-price" placeholder="price" class="input-field">
+                    <input type="text" id="update-image" placeholder="Image-Url" class="input-field">
+
+
+                    <button id="update-now">update-course</button>
+
+                </div>
+
+
+
+
             </header>
 
             <main>
@@ -107,7 +191,7 @@
             </main>
 
             <!-- Card Section -->
-            <div class="cards-section">
+            <div id="all-cards-admin" class="cards-section" >
                 <div class="card">
                     <img src="https://via.placeholder.com/300" alt="Course Image">
                     <h2>Web3 Mastery</h2>
