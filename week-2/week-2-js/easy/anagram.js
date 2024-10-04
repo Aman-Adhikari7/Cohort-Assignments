@@ -6,6 +6,17 @@
 
 function isAnagram(str1, str2) {
 
+  let hehe = str1.split('').join('')
+  let hehe2 = str2.split('').reverse().join('')
+
+  if(hehe == hehe2){
+    console.log('its ana gram')
+  }else{
+    console.log('you failed budddy ')
+  }
+
 }
 
-module.exports = isAnagram;
+isAnagram('aman','nama')
+
+// module.exports = isAnagram;

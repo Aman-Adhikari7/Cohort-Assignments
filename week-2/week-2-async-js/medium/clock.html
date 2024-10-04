@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+        <h2>24-hour format: <span id="clock24"></span></h2>
+        <h2>12-hour format: <span id="clock12"></span></h2>
+    </div>
+
+    <script>
+        
+        function pad(number){
+            return number< 10 ? '0'+number : number
+        }
+        
+        function main(){
+            
+            const time=new Date()
+            
+            let hours = time.getHours()
+            const minutes = time.getMinutes()
+            const seconds= time.getSeconds()
+
+            const hour24= `${pad(hours)}:${pad(minutes)}:${pad(seconds)} `
+
+            let timea1 = 'AM'
+            if(hours>=12){
+               return timea1 ="PM"
+            }
+            
+                hours = hours % 12 || 12; 
+            
+
+            const hour12 = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}  ${timea1}`
+            
+            document.getElementById('clock24').textContent = hour24;
+            document.getElementById('clock12').textContent = hour12;
+            
+            console.log(hour24)
+
+            
+        }
+
+        setInterval(main,1000)
+
+
+    </script>
+    
+</body>
+</html>
