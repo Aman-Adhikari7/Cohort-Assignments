@@ -1,9 +1,5 @@
-import React from 'react'
+const AuthSystem = ({ name }) => {
+  return <div>Welcome, {name}!</div>;
+};
 
-const AuthSystem = () => {
-  return (
-    <div>AuthSystem</div>
-  )
-}
-
-export default AuthSystem
+export default AuthSystem;

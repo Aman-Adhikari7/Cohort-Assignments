@@ -1,8 +1,14 @@
 import AuthSystem from './components/AuthSystem';
-import './Auth.css';
+
+import Login from './components/Login';
 
 function App() {
-  return <AuthSystem />;
+  return(
+    <>
+    {/* <AuthSystem/> */}
+    <Login/>
+    </>
+  )
 }
 
 export default App;
